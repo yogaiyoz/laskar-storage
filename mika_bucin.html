@@ -1,0 +1,287 @@
+<!-- uploader by Laskar ID -->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        /* --- RESET & BASIC SETUP --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* --- BACKGROUND ANIMATION (HEARTS) --- */
+        .bg-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -100px;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            transform: rotate(45deg);
+            animation: floatUp 10s linear infinite;
+        }
+
+        .heart::before, .heart::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: inherit;
+            border-radius: 50%;
+        }
+
+        .heart::before { top: -10px; left: 0; }
+        .heart::after { top: 0; left: -10px; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(45deg) scale(0.5); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-110vh) rotate(45deg) scale(1.2); opacity: 0; }
+        }
+
+        /* --- SCREEN 1: INTRO --- */
+        .intro-screen {
+            text-align: center;
+            z-index: 10;
+            transition: opacity 1s ease;
+        }
+
+        .btn-open {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            background: #fff;
+            color: #ff6b81;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            animation: heartbeat 1.5s infinite;
+            transition: transform 0.3s;
+        }
+
+        .btn-open:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* --- SCREEN 2: MAIN CONTENT --- */
+        .main-content {
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            z-index: 10;
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            animation: popUp 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        @keyframes popUp {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .photo-frame {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #ff6b81;
+            padding: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(255, 107, 129, 0.3);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #d6336c;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .music-control {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: #888;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /* --- WATERMARK --- */
+        .watermark {
+            position: fixed;
+            bottom: 15px;
+            right: 20px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: bold;
+            letter-spacing: 1px;
+            z-index: 100;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 480px) {
+            h1 { font-size: 2rem; }
+            .main-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Hearts Container -->
+    <div class="bg-hearts" id="heartsContainer"></div>
+
+    <!-- Intro Screen -->
+    <div class="intro-screen" id="intro">
+        <h2 style="color: #d6336c; margin-bottom: 20px; font-family: 'Dancing Script', cursive;">Ada pesan buat kamu...</h2>
+        <button class="btn-open" onclick="openLetter()">Buka Surat ❤️</button>
+    </div>
+
+    <!-- Main Content (Hidden Initially) -->
+    <div class="main-content" id="content">
+        <div class="photo-frame">
+            <!-- GANTI FOTO DI SINI -->
+            <img src="https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Foto Pacar">
+        </div>
+        
+        <h1>Hai, Sayang!</h1>
+        
+        <p>
+            Aku cuma mau bilang terima kasih sudah ada di hidup aku. 
+            Setiap hari bersamamu adalah petualangan terindah. 
+            Aku harap kamu selalu bahagia, ya.
+            <br><br>
+            <i>I Love You More Than Words Can Say.</i>
+        </p>
+
+        <div class="music-control" onclick="toggleMusic()">
+            🎵 Putar Musik: <span id="musicStatus">Off</span>
+        </div>
+        
+        <!-- AUDIO PLAYER -->
+        <!-- PENTING: Ganti 'src' dengan link lagu romantis pilihanmu -->
+        <audio id="bgMusic" loop>
+            <!-- Ini adalah link lagu piano romantis gratis (Royalty Free) -->
+            <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Watermark -->
+    <div class="watermark">made by mika</div>
+
+    <script>
+        // --- LOGIC SCRIPT ---
+
+        // 1. Generate Floating Hearts
+        function createHearts() {
+            const container = document.getElementById('heartsContainer');
+            const heartCount = 20; 
+
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        // 2. Open Letter Logic
+        function openLetter() {
+            const intro = document.getElementById('intro');
+            const content = document.getElementById('content');
+            const music = document.getElementById('bgMusic');
+
+            intro.style.opacity = '0';
+            
+            setTimeout(() => {
+                intro.style.display = 'none';
+                content.style.display = 'flex';
+                
+                // Play music
+                music.volume = 0.5;
+                music.play().catch(error => {
+                    console.log("Autoplay blocked, user needs to click play.");
+                });
+                
+                createHearts();
+            }, 1000);
+        }
+
+        // 3. Music Toggle
+        function toggleMusic() {
+            const music = document.getElementById('bgMusic');
+            const status = document.getElementById('musicStatus');
+            
+            if (music.paused) {
+                music.play();
+                status.innerText = "On";
+            } else {
+                music.pause();
+                status.innerText = "Off";
+            }
+        }
+
+        createHearts();
+    </script>
+</body>
+</html>
+
+<!-- uploader by Laskar ID -->
