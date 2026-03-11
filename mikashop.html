@@ -1,0 +1,134 @@
+<!-- uploader by Laskar ID -->
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MineStore - Akun Minecraft Murah</title>
+    <!-- Menggunakan Tailwind CSS agar langsung cantik tanpa file CSS terpisah -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+        body { font-family: 'Poppins', sans-serif; }
+        .minecraft-btn {
+            background-color: #3b8526;
+            border: 2px solid #1e4d14;
+            box-shadow: 0 4px 0 #1e4d14;
+            transition: all 0.1s;
+        }
+        .minecraft-btn:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 #1e4d14;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-cube text-green-500 text-2xl"></i>
+                <span class="text-2xl font-bold tracking-wider">MINE<span class="text-green-500">STORE</span></span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="hover:text-green-400 transition">Beranda</a>
+                <a href="#produk" class="hover:text-green-400 transition">Daftar Akun</a>
+                <a href="#cara-pesan" class="hover:text-green-400 transition">Cara Pesan</a>
+            </div>
+            <button class="bg-gray-700 p-2 rounded-lg hover:bg-gray-600">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-gray-800 py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
+                Akun Minecraft <span class="text-green-500">Original</span>
+            </h1>
+            <p class="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+                Dapatkan akun Java & Bedrock resmi seumur hidup. Garansi seumur hidup, aman, dan proses instan.
+            </p>
+            <a href="#produk" class="minecraft-btn text-white font-bold py-3 px-8 rounded text-lg inline-block">
+                BELI SEKARANG
+            </a>
+        </div>
+    </header>
+
+    <!-- Product Section -->
+    <section id="produk" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center mb-12">Pilihan Akun</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Produk 1: Java -->
+            <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-green-500 transition group">
+                <div class="h-48 bg-gray-700 flex items-center justify-center relative">
+                    <span class="absolute top-2 right-2 bg-green-600 text-xs font-bold px-2 py-1 rounded">BEST SELLER</span>
+                    <i class="fa-solid fa-gamepad text-6xl text-gray-500 group-hover:text-green-500 transition"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Minecraft Java Edition</h3>
+                    <p class="text-gray-400 text-sm mb-4">Akun Premium Original. Bisa ganti email & password. Garansi 100%.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-2xl font-bold text-green-400">Rp 15.000</span>
+                        <span class="text-xs text-gray-500 line-through">Rp 25.000</span>
+                    </div>
+                    <button class="minecraft-btn w-full text-white font-bold py-2 rounded">
+                        <i class="fa-brands fa-whatsapp mr-2"></i> Beli via WA
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produk 2: Bedrock -->
+            <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-green-500 transition group">
+                <div class="h-48 bg-gray-700 flex items-center justify-center">
+                    <i class="fa-solid fa-mobile-screen text-6xl text-gray-500 group-hover:text-green-500 transition"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Minecraft Bedrock</h3>
+                    <p class="text-gray-400 text-sm mb-4">Untuk HP (Android/iOS) & Konsol. Akun Microsoft Original.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-2xl font-bold text-green-400">Rp 10.000</span>
+                        <span class="text-xs text-gray-500 line-through">Rp 18.000</span>
+                    </div>
+                    <button class="minecraft-btn w-full text-white font-bold py-2 rounded">
+                        <i class="fa-brands fa-whatsapp mr-2"></i> Beli via WA
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produk 3: Bundle -->
+            <div class="bg-gray-800 rounded-xl overflow-hidden border border-gray-700 hover:border-green-500 transition group">
+                <div class="h-48 bg-gray-700 flex items-center justify-center">
+                    <i class="fa-solid fa-box-open text-6xl text-gray-500 group-hover:text-green-500 transition"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">Bundle Hemat</h3>
+                    <p class="text-gray-400 text-sm mb-4">Beli 2 Akun Java + 1 Bedrock. Cocok buat jualan lagi.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-2xl font-bold text-green-400">Rp 35.000</span>
+                        <span class="text-xs text-gray-500 line-through">Rp 50.000</span>
+                    </div>
+                    <button class="minecraft-btn w-full text-white font-bold py-2 rounded">
+                        <i class="fa-brands fa-whatsapp mr-2"></i> Beli via WA
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2023 MineStore. Not affiliated with Mojang Studios.</p>
+    </footer>
+
+</body>
+</html>
+
+<!-- uploader by Laskar ID -->
